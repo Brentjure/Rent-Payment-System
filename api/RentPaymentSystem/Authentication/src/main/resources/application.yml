@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: Authentication
+server:
+  port: 8081
+
+jwt:
+  secret-key: ANT7vt8GSAZL9toF/uiAJmAq9m+zEBS31AsAMx7/vEIb5sQh9epMHSXbMxdJaq/b
