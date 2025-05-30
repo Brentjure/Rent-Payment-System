@@ -39,13 +39,6 @@ public class JWTService {
                 .compact();
     }
 
-    public Claims extractAllClaims(String token) {
-        return Jwts.parserBuilder()
-                .setSigningKey(getSignInKey())
-                .build()
-                .parseClaimsJws(token)
-                .getBody();
-    }
 
     private Key getSignInKey() {
         byte[] keyBytes = jwtSecret.getBytes();

@@ -8,5 +8,10 @@ spring:
     password: beast-M0de
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+
+jwt:
+  secret-key: ANT7vt8GSAZL9toF/uiAJmAq9m+zEBS31AsAMx7/vEIb5sQh9epMHSXbMxdJaq/b
+
 server:
   port: 8082
+
