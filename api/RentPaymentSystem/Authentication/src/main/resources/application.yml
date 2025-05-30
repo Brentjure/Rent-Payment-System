@@ -1,8 +1,13 @@
 spring:
   application:
-    name: Authentication
+    name: Authentication-Service
 server:
   port: 8081
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
 
 jwt:
   secret-key: ANT7vt8GSAZL9toF/uiAJmAq9m+zEBS31AsAMx7/vEIb5sQh9epMHSXbMxdJaq/b
