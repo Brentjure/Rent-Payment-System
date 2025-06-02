@@ -32,7 +32,7 @@ public class AuthService {
 
         // Validate user
         ResponseEntity<UserResponse> response = restTemplate.postForEntity(
-                "http://localhost:8082/api/v1/users/validate",
+                "http://USERS-SERVICE/api/v1/users/validate",
                 request,
                 UserResponse.class
         );

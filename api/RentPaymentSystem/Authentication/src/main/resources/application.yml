@@ -8,6 +8,10 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true
+
+
 
 jwt:
   secret-key: ANT7vt8GSAZL9toF/uiAJmAq9m+zEBS31AsAMx7/vEIb5sQh9epMHSXbMxdJaq/b
