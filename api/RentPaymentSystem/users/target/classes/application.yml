@@ -8,14 +8,34 @@ spring:
     password: beast-M0de
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8180/realms/rent-payment
+      client:
+        registration:
+          keycloak:
+            client-id: users-service-client
+            client-secret: OsoIvJAOK1hi8ec7CrvRgl0bU2ZiYGnA
+            authorization-grant-type: client_credentials
+            scope: openid
+        provider:
+          keycloak:
+            token-uri: http://localhost:8180/realms/rent-payment/protocol/openid-connect/token
+
+
+
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
     fetch-registry: true
     register-with-eureka: true
-
-
+  instance:
+    hostname: localhost
+    preferIpAddress: true
+    instanceId: ${spring.application.name}:${server.port}
 
 
 jwt:

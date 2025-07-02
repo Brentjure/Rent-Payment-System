@@ -9,6 +9,7 @@ import com.RentPaymentSystem.app.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,8 +38,5 @@ public class UserController {
         return ResponseEntity.ok(userService.registerUser(request));
     }
 
-    @GetMapping("")
-    public ResponseEntity<List<UserEntity>> getUsers() {
-        return ResponseEntity.ok(userService.findAll());
-    }
+
 }
