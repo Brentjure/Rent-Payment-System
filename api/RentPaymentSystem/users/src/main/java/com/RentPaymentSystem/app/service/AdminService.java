@@ -22,19 +22,17 @@ public class AdminService {
     public void registerAgent(UserRegistrationRequest request) {
         String agentId = keycloakUserServiceImpl.createUserAndAssignRole(request, Role.AGENT);
 
-            //  Save to local DB
-            UserEntity agent = UserEntity.builder()
-                    .email(request.getEmail())
-                    .firstName(request.getFirstName())
-                    .lastName(request.getLastName())
-                    .phoneNumber(request.getPhoneNumber())
-                    .role(Role.AGENT)
-                    .build();
+        //  Save to local DB
+        UserEntity user = UserEntity.builder()
+                .email(request.getEmail())
+                .firstName(request.getFirstName())
+                .lastName(request.getLastName())
+                .phoneNumber(request.getPhoneNumber())
+                .role(Role.AGENT)
+                .build();
 
-            userRepo.save(agent);
-        }
-
+        userRepo.save(user);
     }
-
+}
 
 

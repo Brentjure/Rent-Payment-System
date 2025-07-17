@@ -5,7 +5,9 @@ import com.RentPaymentSystem.app.dto.KeycloakUserCreationRequest;
 import com.RentPaymentSystem.app.dto.KeycloakUserRepresentation;
 import com.RentPaymentSystem.app.dto.UserRegistrationRequest;
 import com.RentPaymentSystem.app.entity.Role;
+import com.RentPaymentSystem.app.entity.UserEntity;
 import com.RentPaymentSystem.app.oauth2.KeyCloakTokenService;
+import com.RentPaymentSystem.app.repository.UserRepo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.*;
@@ -21,6 +23,7 @@ public class KeycloakUserServiceImpl implements KeycloakUserService {
 
     private final KeyCloakTokenService keyCloakTokenService;
     private final RestTemplate restTemplate;
+    private final UserRepo userRepo;
     private static final String REALM = "rent-payment";
     private static final String KEYCLOAK_BASE_URL = "http://localhost:8180";
     String userCreationUrl = KEYCLOAK_BASE_URL + "/admin/realms/" + REALM + "/users";
@@ -54,6 +57,7 @@ public class KeycloakUserServiceImpl implements KeycloakUserService {
 
             assignRoleToUser(userId, role.name(), userServiceToken);
         }
+
 
         return null;
     }
