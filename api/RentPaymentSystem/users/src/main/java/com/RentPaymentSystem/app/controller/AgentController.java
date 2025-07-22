@@ -5,6 +5,7 @@ import com.RentPaymentSystem.app.dto.UserRegistrationRequest;
 import com.RentPaymentSystem.app.service.AgentUserRegistrationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/agent/")
+@PreAuthorize("hasRole('ROLE_AGENT') or hasRole('ROLE_ADMIN')")
 public class AgentController {
     private final AgentUserRegistrationService agentUserRegistrationService;
 
@@ -26,7 +28,7 @@ public class AgentController {
         return ResponseEntity.ok(apiResponse);
     }
 
-    @PostMapping("register/Landlord")
+    @PostMapping("register/landlord")
     public ResponseEntity<ApiResponse<String>> registerLandlord(@RequestBody UserRegistrationRequest request) {
         agentUserRegistrationService.registerLandlord(request);
         ApiResponse<String> apiResponse = new ApiResponse<>(

@@ -6,6 +6,7 @@ import com.RentPaymentSystem.app.dto.KeycloakUserRepresentation;
 import com.RentPaymentSystem.app.dto.UserRegistrationRequest;
 import com.RentPaymentSystem.app.entity.Role;
 import com.RentPaymentSystem.app.entity.UserEntity;
+import com.RentPaymentSystem.app.exception.UserCreationException;
 import com.RentPaymentSystem.app.oauth2.KeyCloakTokenService;
 import com.RentPaymentSystem.app.repository.UserRepo;
 import lombok.RequiredArgsConstructor;
@@ -46,7 +47,7 @@ public class KeycloakUserServiceImpl implements KeycloakUserService {
                 entity,
                 Void.class);
         if (!response.getStatusCode().is2xxSuccessful()) {
-            throw new RuntimeException("Failed to create user in Keycloak.");
+            throw new UserCreationException("Failed to create user in Keycloak.",HttpStatus.CONFLICT);
         }
 
         // Fetch userId and assign role

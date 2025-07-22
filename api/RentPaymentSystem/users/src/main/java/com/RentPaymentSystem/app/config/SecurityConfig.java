@@ -20,29 +20,9 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @RequiredArgsConstructor
 public class SecurityConfig {
-
-//    private final JWTAuthFilter jwtFilter;
     private final AuthenticationProvider authenticationProvider;
 
-    // Chain for custom JWT authentication
-//    @Bean
-//    @Order(1)
-//    public SecurityFilterChain jwtSecurityFilterChain(HttpSecurity http) throws Exception {
-//        http
-//                .securityMatcher("/api/v1/**") // Apply this chain only to /api/v1 paths
-//                .csrf(AbstractHttpConfigurer::disable)
-//                .authorizeHttpRequests(auth -> auth
-//                        .requestMatchers("/api/v1/users/register", "/api/v1/users/validate").permitAll()
-//                        .anyRequest().authenticated()
-//                )
-//                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-//                .authenticationProvider(authenticationProvider)
-//                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
-//
-//        return http.build();
-//    }
 
-    // Chain for Keycloak OAuth2 Resource Server
     @Bean
     @Order(2)
     public SecurityFilterChain oauth2SecurityFilterChain(HttpSecurity http) throws Exception {
