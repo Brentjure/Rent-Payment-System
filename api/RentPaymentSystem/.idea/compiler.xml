@@ -11,6 +11,7 @@
         <module name="Authentication" />
         <module name="users" />
         <module name="Eureka-server" />
+        <module name="properties" />
       </profile>
     </annotationProcessing>
   </component>

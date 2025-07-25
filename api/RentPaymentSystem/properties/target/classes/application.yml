@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: properties
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/properties
+    username: root
+    password: beast-M0de
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true
+  instance:
+    hostname: localhost
+    preferIpAddress: true
+    instanceId: ${spring.application.name}:${server.port}
+server:
+  port: 8085

@@ -16,6 +16,7 @@
     <module>users</module>
     <module>Eureka-server</module>
     <module>api-gateway</module>
+    <module>properties</module>
   </modules>
 
   <properties>
